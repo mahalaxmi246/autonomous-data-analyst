@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+python-multipart
+python-dotenv
+pandas
+numpy
+langchain
+langchain-groq
+langchain-huggingface
+langchain-chroma
+langchain-community
+langchain-core
+chromadb
+sentence-transformers
+pydantic
+openpyxl
