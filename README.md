@@ -84,27 +84,8 @@ npm run dev
 - **LangSmith**: https://smith.langchain.com → free tier
 - **HuggingFace**: https://huggingface.co/settings/tokens → free
 
----
 
-## Deploy
 
-### Backend → Render
-
-1. Push to GitHub
-2. Go to render.com → New Web Service
-3. Connect your repo
-4. Set build command: `pip install -r backend/requirements.txt`
-5. Set start command: `cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT`
-6. Add environment variables from `.env.example`
-
-> ⚠️ **Known Issue — Render Free Tier OOM Crash**: The HuggingFace embedding model (`all-MiniLM-L6-v2`) loads ~400MB+ into RAM, which exceeds Render's free tier limit of 512MB. The app crashes with `Out of memory (used over 512Mi)` shortly after startup. **Fix**: Switch embeddings to use the HuggingFace Inference API instead of loading the model locally, or upgrade to Render's Starter plan ($7/month) for 2GB RAM. The app works perfectly in local setup.
-
-### Frontend → Vercel
-
-1. Go to vercel.com → New Project
-2. Connect your repo, set root to `frontend/`
-3. Change `API` in `App.jsx` from `http://localhost:8000` to your Render URL
-4. Deploy
 
 ---
 
@@ -120,11 +101,3 @@ npm run dev
 
 ---
 
-## What to Ask
-
-- "Which product had the highest sales?"
-- "Show me monthly revenue trend"
-- "What is the average order value by region?"
-- "Which customers made the most purchases?"
-- "Show distribution of prices"
-- "Find all rows where quantity is above 100"
